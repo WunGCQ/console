@@ -1,0 +1,22 @@
+.circle-nav{
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    background: #1FB5AC;
+    margin: 15px;
+    color: #fff;
+    cursor: pointer;
+    border: 6px solid #1CA39A;
+    text-shadow: 3px 3px 3px #0F4D4B;
+    font-family: 'Microsoft Yahei',Helvetica, Arial, sans-serif;
+}
+.circle-nav .hidden-xs{
+    font-family: 'Microsoft Yahei',Helvetica, Arial, sans-serif;
+}
+.circle-nav .fa{
+
+    opacity: 0.94;
+    font-size: 24px;
+    margin-top: 25px;
+}

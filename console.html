@@ -6,11 +6,14 @@
     <!--<script src="foundation/js/foundation.min.js"></script>-->
     <script src="js/page_control.js"></script>
     <script src="js/jquery.min.js"></script>
-    <link rel="stylesheet" href="foundation/css/foundation.min.css"/>
+    <!--<link rel="stylesheet" href="foundation/css/foundation.min.css"/>-->
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <script src="js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="font-awesome-4.2.0/css/font-awesome.css"/>
     <link rel="stylesheet" href="css/consolestyle.css"/>
-
-
+    <link rel="stylesheet" href="css/createad.css"/>
+    <link rel="stylesheet" href="css/Response.css"/>
+    <link rel="stylesheet" href="css/homepage.css"/>
     <!--临时样式表 头-->
     <style>
 
@@ -18,82 +21,72 @@
     </style>
     <!--临时样式表 尾-->
 
-<body onresize="set_sizes()">
+<body onresize="setSizes()">
     <div id="container">
 
         <div id="left-bar" class="columns">
             <ul id="nav">
-                <li class="nav-bar logo-nav"><a href="" target="_blank"><img src="img/hpcp.png" alt="company logo" class="company-logo"/></a></li>
-                <li class="nav-bar "><span class="fa fa-home"></span>首页</li>
-                <li class="nav-bar"><span class="fa fa-users"></span>商户信息</li>
-                <li class="nav-bar"><span class="fa fa-users"></span>路由管理</li>
-                <li class="nav-bar"><span class="fa fa-cogs"></span>应用设置</li>
-                <li class="nav-bar"><span class="fa fa-table"></span>认证页面</li>
-                <li class="nav-bar"><span class="fa fa-cloud"></span>广告管理</li>
-                <li class="nav-bar"><span class="fa fa-star"></span>小微官网</li>
-                <li class="nav-bar nav-active"><span class="fa fa-comments"></span>客户留言</li>
-                <li class="nav-bar"><span class="fa fa-line-chart"></span>用户统计</li>
-                <li class="nav-bar"><span class="fa fa-wifi"></span>上网统计</li>
-                <li class="nav-bar"><span class="fa fa-dashboard"></span>营销管理</li>
+                <li class="logo-nav" ><a href="" target="_blank"><img src="img/tzklogo.png" alt="company logo" class="company-logo"/></a></li>
+                <li class="nav-bar nav-active" id="user-msg"><span class="fa fa-home"></span><span class="hidden-xs">首页</span></li>
+                <li class="nav-bar" id="create-ad"><span class="fa fa-pencil"></span><span class="hidden-xs">创建广告</span></li>
+                <li class="nav-bar" id="manage-ad"><span class="fa fa-wrench"></span><span class="hidden-xs">管理广告</span></li>
+                <li class="nav-bar" id="pay-act"><span class="fa fa-cny"></span>&nbsp;<span class="hidden-xs">充值付费</span></li>
+                <li class="nav-bar" id="record-payment"><span class="fa fa-table"></span><span class="hidden-xs">充值记录</span></li>
+                <li class="nav-bar" id="data-report"><span class="fa fa-cloud"></span><span class="hidden-xs">数据报告</span></li>
+                <li class="nav-bar" id="help"><span class="fa fa-star"></span><span class="hidden-xs">帮助说明</span></li>
             </ul>
         </div>
         <div id="top-bar" class="columns">
             <div id="top-bar-units">
-                <!--显示用户头像-->
-                <div class="user-icon-block">
-                    <!--<img src="" alt="头像" class="user-icon"/>-->
+
+                <div class="exit-block top-bar-hover-elements">
+                    <span class="fa fa-mail-forward"></span><div class="hidden-xs">注销</div>
+                </div>
+
+                <div class="hr-h">
+
+                </div>
+
+                <div id="top-bar-msg" class="msg-block top-bar-hover-elements">
+                    <div class="hidden-xs">
+                        <span class="fa fa-envelope-o"></span>消息<span id="num-of-msg">3</span>
+                    </div>
+
+                    <div class="visible-xs">
+                        <span class="fa fa-envelope-o"></span><span id="num-of-msg">3</span>
+                    </div>
+                </div>
+
+
+
+                <div class="hr-h">
                 </div>
                 <!--显示用户名-->
                 <div class="user-info-block top-bar-hover-elements">
-                    <div id="username"></div>
+                    <div id="username" class="hidden-xs"></div>
                     <ul id="list-menu">
                         <li>
                             <span class="fa fa-lastfm"></span>选项一
-                            <div class="hr-v"></div>
+                            <!--<div class="hr-v"></div>-->
                         </li>
 
                         <li>
                             <span class="fa fa-magic"></span>选项②
-                            <div class="hr-v"></div>
+                            <!--<div class="hr-v"></div>-->
                         </li>
 
                         <li>
                             <span class="fa fa-navicon"></span>选项叁
-                            <div class="hr-v"></div>
+                            <!--<div class="hr-v"></div>-->
                         </li>
                     </ul>
                 </div>
 
                 <div class="hr-h">
-
                 </div>
 
-                <div class="msg-block top-bar-hover-elements">
-                    <span class="fa fa-envelope-o"></span>消息 <span id="num-of-msg">3</span>
-                </div>
-
-                <div class="hr-h">
-
-                </div>
-
-                <div class="exit-block top-bar-hover-elements">
-                    <span class="fa fa-mail-forward"></span>退出
-                </div>
-
-                <div class="hr-h">
-
-                </div>
-
-                <div class="cooperation-block top-bar-hover-elements">
-                    商务合作:<span class="fa fa-qq"> QQ交谈</span>
-                </div>
-
-                <div class="hr-h">
-
-                </div>
-
-                <div class="support-service-block top-bar-hover-elements">
-                    技术支持:<span class="fa fa-qq"> QQ交谈</span>
+                <div class="aboutus-block top-bar-hover-elements hidden-xs">
+                    关于我们
                 </div>
 
             </div>
@@ -102,98 +95,97 @@
         </div>
         <div id="right-tab-block">
             <div class="tab-block active-tab" id="user-msg-tab">
-                <h3 id="tab-title">
-                    用户留言面板
+                <h3 class="tab-title">
+                    特准客：首页
                 </h3>
-                <table id="system-msg-show-list">
-                    <tbody>
-                    <tr >
-                        <td>
-                            <span style="color: #fff;font-size: 20px">系统消息</span>
-                        </td>
-                    </tr>
-                    <tr class="msg-tip">
-                        <td class="msg-img-td">
-                            <img src="img/user-icon-1.jpg" alt="" class="msg-img"/>
-                        </td>
-                        <td class="msg-title-td">
-                            系统提醒，系统的提醒
-                        </td>
-                        <td class="msg-content-td">
-                            这是一封来自未来的系统的退信，原因不明。这是一封来自未来的系统的退信，原因不明。这是一封来自未来的系统的退信，原因不明。
-                        </td>
-                        <td class="msg-time-td">
-                            2014-10-24<br>
-                            06:00
-                        </td>
-                    </tr>
+                <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-10 col-md-offset-1">
+                    <div class="circle-nav"><span class="fa fa-pencil"></span><span class="hidden-xs">创建广告</span></div>
+                    <div class="circle-nav"><span class="fa fa-wrench"></span><span class="hidden-xs">管理广告</span></div>
+                    <div class="circle-nav"><span class="fa fa-cny"></span>&nbsp;<span class="hidden-xs">充值付费</span></div>
+                    <div class="circle-nav"><span class="fa fa-table"></span><span class="hidden-xs">充值记录</span></div>
+                    <div class="circle-nav"><span class="fa fa-cloud"></span><span class="hidden-xs">数据报告</span></div>
+                    <div class="circle-nav"><span class="fa fa-star"></span><span class="hidden-xs">帮助说明</span></div>
+                </div>
 
 
-                    </tbody>
+            </div>
+            <div class="tab-block hidden-tab" id="create-ad-tab">
+                <h3 class="tab-title">
+                    创建广告
+                </h3>
+
+                <div class=" col-xs-10 col-xs-offset-1 col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-lg-6 col-lg-offset-3" id="create-ad-block">
+                    <div class="row">
+                        <span style="margin-bottom: 10px;display: block;">请填写广告信息</span>
+                    </div>
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <label for="input-ad-name" class="visible-lg col-lg-3 control-label">广告名称</label>
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-8 ">
+                                <input type="text" class="form-control" id="input-ad-name" placeholder="请填写广告名称" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="input-ad-link" class="visible-lg col-lg-3 control-label">广告链接</label>
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-8 ">
+                                <input type="text" class="form-control" id="input-ad-link" placeholder="请填写广告链接" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="input-ad-content" class="visible-lg col-lg-3 control-label">广告内容</label>
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-8 " >
+                                <textarea type="text" class="form-control" id="input-ad-content" placeholder="请填写广告名称" ></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="input-ad-link" class="visible-lg col-lg-3 control-label">选择文件</label>
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-8 ">
+                                <input type="file" class="form-control" id="input-ad-file" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <button type="button" class="btn btn-basic" id="create-ad-submit-btn">创建广告</button>
+                        </div>
 
 
-                </table>
-                <table id="user-msg-show-list">
-                    <td>
-                        <span style="color: #fff;font-size: 20px">来自用户</span>
-                    </td>
-                    <tr class="msg-tip">
+                    </form>
+                </div>
 
-                        <td class="msg-img-td">
-                            <img src="img/user-icon-2.jpg" alt="" class="msg-img"/>
-                        </td>
-                        <td class="msg-title-td">
-                            张三丰
-                        </td>
-                        <td class="msg-content-td">
-                            太极拳辅导班开课啦！
-                        </td>
-                        <td class="msg-time-td">
-                            2014-10-24<br>
-                            06:00
-                        </td>
-                    </tr>
-                    <tr class="msg-tip">
-                        <td class="msg-img-td">
-                            <img src="img/user-icon-3.jpg" alt="" class="msg-img"/>
-                        </td>
-                        <td class="msg-title-td">
-                            李四娘
-                        </td>
-                        <td class="msg-content-td">
-                            没事只是来打个酱油
-                        </td>
-                        <td class="msg-time-td">
-                            2014-10-24<br>
-                            06:00
-                        </td>
-                    </tr>
 
-                    <tr class="msg-tip">
-                        <td class="msg-img-td">
-                            <img src="img/user-icon-4.jpg" alt="" class="msg-img"/>
-                        </td>
-                        <td class="msg-title-td">
-                            王二麻子大剪刀
-                        </td>
-                        <td class="msg-content-td">
-                            双11大剪刀特卖，分分钟剪碎情侣购物车，包邮哦
-                        </td>
-                        <td class="msg-time-td">
-                            2014-10-24<br>
-                            06:00
-                        </td>
-                    </tr>
-                </table>
+
+
+            </div>
+            <div class="tab-block hidden-tab" id="manage-ad-tab">
+                <h3 class="tab-title">
+                    管理广告
+                </h3>
+            </div>
+            <div class="tab-block hidden-tab" id="pay-act-tab">
+                <h3 class="tab-title">
+                    充值付费
+                </h3>
+            </div>
+            <div class="tab-block hidden-tab" id="record-payment-tab">
+                <h3 class="tab-title">
+                    充值记录
+                </h3>
+            </div>
+            <div class="tab-block hidden-tab" id="data-report-tab">
+                <h3 class="tab-title">
+                    数据报告
+                </h3>
+            </div>
+            <div class="tab-block hidden-tab" id="help-tab">
+                <h3 class="tab-title">
+                    帮助说明
+                </h3>
             </div>
         </div>
 
 
     </div>
     <script>
-        set_sizes();
-        set_username();
-        load_user_icon();
+        _init();
     </script>
 </body>
 </html>

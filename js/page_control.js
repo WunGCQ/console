@@ -1,47 +1,109 @@
 /**
  * Created by WunG on 2014/10/23.
  */
-function set_topbar_width() {
-    var window_width=document.body.clientWidth;
-    var topbar=document.getElementById("top-bar");
-    topbar.style.width=(window_width-200).toString()+"px";
+function _init() {
+    setSizes();
+    setUserName();
+//        loadUserIcon();
+    setUsernameClicklistener();
+    bindTabChange();
+}
+function setContainerSize(){
+    var bodyHeight=document.body.offsetHeight;
+    var Container=document.getElementById('container');
+    Container.style.height=bodyHeight+"px";
+    console.log(bodyHeight);
+}
+function setTopbarWidth() {
+    var windowWidth=document.body.clientWidth;
+    var TopBar=document.getElementById("top-bar");
+    Topbar.style.width=(windowWidth-200).toString()+"px";
 }
 
-function set_tab_block_size(){
-    var window_width=document.body.clientWidth;
-    var window_height=document.body.clientHeight;
-    var tab_block=document.getElementById("right-tab-block");
-    tab_block.style.width=(window_width-200).toString()+"px";
-    tab_block.style.height=(window_height-50).toString()+"px";
+function setTabBlockSize(){
+    var windowWidth=document.body.clientWidth;
+    var windowHeight=document.body.clientHeight;
+    var tabBlock=document.getElementById("right-tab-block");
+    if(windowWidth>768){
+        tabBlock.style.width=(windowWidth-200).toString()+"px";
+    }
+    else{
+        tabBlock.style.width=(windowWidth-60).toString()+"px";
+    }
+    tabBlock.style.minHeight=(windowHeight-100).toString()+"px";
+
 }
 
-function set_sizes() {
-    set_topbar_width();
-    set_tab_block_size();
+function setSizes() {
+//    setTopbarWidth();
+    setTabBlockSize();
+//    setContainerSize();
 }
 
-function set_username() {
-    var username="用户名称 user";
-    document.getElementById("username").innerHTML=username+'<span class="fa fa-sort-down"></span>';
+function setUserName() {
+    var UserName="用户名称 user";
+    document.getElementById("username").innerHTML='<span class="fa fa-user"></span>'+UserName+'<span class="fa fa-sort-down"></span>';
 }
 
-function load_user_icon(src){
+function loadUserIcon(src){
 //    AJAX
-    var icon_img=new Image();
-    icon_img.src="img/hpcp.jpg";
-    icon_img.className="user-icon";
-    icon_img.alt="头像";
-    var user_icon_block= document.getElementsByClassName("user-icon-block")[0];
-    console.log(user_icon_block);
-    user_icon_block.appendChild(icon_img);
+    var iconImg=new Image();
+    iconImg.src="img/hpcp.jpg";
+    iconImg.className="user-icon";
+    iconImg.alt="头像";
+    var UserIconBlock= document.getElementsByClassName("user-icon-block")[0];
+    console.log(UserIconBlock);
+    UserIconBlock.appendChild(iconImg);
 }
 
-function set_username_click_listener() {
-    var username=document.getElementById('username');
-    username.addEventListener('click','show_list_menu()');
+function setUsernameClicklistener() {
+    var UserName=document.getElementsByClassName('user-info-block')[0];
+    UserName.addEventListener("mouseover",showListMenu);
+    UserName.addEventListener("mouseout",hideListMenu);
 }
 
-function show_list_menu(){
-    var list_menu=document.getElementById('list-menu');
+function showListMenu(){
+    var ListMenu=document.getElementById('list-menu');
+    ListMenu.style.display="block";
 }
 
+function hideListMenu(){
+    var ListMenu=document.getElementById('list-menu');
+    ListMenu.style.display="none";
+}
+
+function bindTabChange() {
+    var LeftNav = new Array();
+    LeftNav = document.getElementsByClassName('nav-bar');
+//    for (var counter = 0; counter < LeftNav.length; counter++) {
+//        var LeftBar = LeftNav[counter];
+//        LeftBar.addEventListener("click", changeTabByLeftBar);
+//    }
+    $(".nav-bar").click(function(){changeTabByLeftBar(this)});
+    $("#top-bar-msg").click(function () {
+        $(".tab-block").attr("class", "tab-block hidden-tab");
+        $("#user-msg-tab").attr("class", "tab-block active-tab");
+    });
+}
+//    if(LeftObj.id=="top-bar-msg"){
+//
+//    }
+//    else
+//        }
+
+function changeTabByLeftBar(obj){
+//    var LeftObj=window.event.target;
+    LeftObj=obj;
+
+    if(LeftObj.className=="nav-bar nav-active"){
+        var JQLeftObj=$(LeftObj);
+        //console.log(JQLeftObj);
+    }
+    else if(LeftObj.className=="nav-bar"){
+        $(".nav-bar").attr("class","nav-bar");
+        LeftObj.className="nav-bar nav-active";
+        var TabName=LeftObj.id+"-tab";
+        $(".tab-block").attr("class","tab-block hidden-tab");
+        $("#"+TabName).attr("class","tab-block active-tab");
+    }
+}
