@@ -1,0 +1,23 @@
+#contacts-tab {
+    text-align: center;
+}
+#contacts-tab table {
+    margin: 20px auto 0px auto;
+}
+#contacts-tab td,#contacts-tab th{
+    width: 154px;
+    text-align: left;
+    padding-left: 20px;
+}
+#contacts-tab thead>tr{
+    height: 40px;
+    background-color: #227DC5;
+    color: #fff;
+}
+#contacts-tab tbody td{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+#contacts-tab tr{
+    border: 1px solid #227DC5;
+}

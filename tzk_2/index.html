@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-cmn-Hans">
+    <meta charset="UTF-8">
+    <title>特准客精准营销系统</title>
+    <link rel="stylesheet" href="font-awesome-4.2.0/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/leftbar.css"/>
+    <link rel="stylesheet" href="css/topbar.css"/>
+    <link rel="stylesheet" href="css/container.css"/>
+    <link rel="stylesheet" href="css/安全设置.css"/>
+    <link rel="stylesheet" href="css/基本资料.css"/>
+    <link rel="stylesheet" href="css/联系方式.css"/>
+    <link rel="stylesheet" href="css/我的账户.css"/>
+    <link rel="stylesheet" href="css/交易管理.css"/>
+    <link rel="stylesheet" href="css/发票管理.css"/>
+    <link rel="stylesheet" href="css/线下汇款管理.css"/>
+    <link rel="stylesheet" href="css/iosCheck.css"/>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/leftBarController.js"></script>
+    <script src="js/UserModel.js"></script>
+    <style>
+        body{
+            position: relative;
+            margin:0px;
+            padding:0px;
+            min-height: 100%;
+            font-size: 14px;
+            background-color: #f1f1f1;
+        }
+        html{
+            min-height: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div id="left-bar">
+        <div id="logo">
+            <span>特准客精准营销系统</span>
+        </div>
+        <div class="nav-bar">
+            <div class="pnav"><span class="fa fa-home"></span>首页</div>
+            <div class="snav">首页导航</div>
+        </div>
+        <div class="nav-bar">
+            <div class="pnav"><span class="fa fa-user"></span> 认证会员</div>
+            <div class="snav">会员信息</div>
+            <div class="snav">账户管理</div>
+            <div class="snav">消费记录</div>
+            <div class="snav">我的服务</div>
+        </div>
+        <div class="nav-bar">
+            <div class="pnav"><span class="fa fa-wrench"></span>广告管理</div>
+            <div class="snav">添加广告</div>
+            <div class="snav">广告管理</div>
+            <div class="snav">广告统计</div>
+        </div>
+    </div>
+    <div id="top-bar">
+        <div id="top-bar-user" class="ss" >
+            <span class="fa fa-user"></span>欢迎光临 <span class="fa fa-exclamation-triangle"></span>
+        </div>
+    </div>
+    <div id="container">
+        <div class="ptab">
+            0
+        </div>
+        <div class="ptab">
+            <div class="nav">
+                <!--<div class="nav-div">会员信息</div>-->
+                <div class="nav-div active">安全设置</div>
+                <div class="nav-div">基本资料</div>
+                <div class="nav-div">联系人管理</div>
+            </div>
+            <div class="stab active" id="safety-settings-tab">
+                <div class="stab-content-wrap">
+                    <div class="stab-title">
+                        <h5><strong>安全设置</strong></h5>
+                    </div>
+                    <div class="info-wrap">
+                        <div id="user-icon-wrap">
+                            <img src="img/miaopasi.jpg" alt="user-icon"/>
+                            <a href="">更换头像</a>
+                        </div>
+                        <div id="brief-info">
+                            <table>
+                                <tr>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                                <tr>
+                                    <td>登录账号：</td>
+                                    <td><strong>asdfwefxcvfa@aliyun.com ( <span style="color: #F9A945;">未认证,</span><a
+                                            href="">点击进行实名认证</a> )</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>登录手机：</td>
+                                    <td><strong>139****7669 <a href="#">更换</a></strong></td>
+                                </tr>
+                                <tr>
+                                    <td>注册时间：</td>
+                                    <td>2006-03-06  08:45:55</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div id="safe-level-wrap">
+                        <div id="safe-bar-table">
+                            <div>
+                                您当前的账号安全程度：
+                            </div>
+                            <div>
+                                <div id="safe-bar-background">
+                                    <div id="safe-bar"></div>
+                                </div>
+                            </div>
+                            <div>
+                                安全级别： <strong><span style="color:#f00">低</span><span style="color:#53C729;">中</span><span style="color:#53C729;">高</span></strong>
+                                继续努力
+                            </div>
+
+                        </div>
+                    </div>
+                    <div id="login-password-wrap" class="safe-details-wrap">
+                        <div>
+                            <strong>登录密码</strong>
+                        </div>
+                        <div>
+                            安全性高的密码可以使账号更安全。建议您定期更换密码，设置一个包含字母，符号或数字中至少两项且长度超过6位的密码。
+                        </div>
+                        <div>
+                            <span class="fa fa-check"></span>
+                            <strong>
+                                <span style="color: #0E9B06;">已设置</span>
+                                <a href="">修改</a>
+                            </strong>
+                        </div>
+                    </div>
+                    <div id="phone-wrap" class="safe-details-wrap">
+                        <div>
+                            <strong>手机绑定</strong>
+                        </div>
+                        <div>
+                            您已绑定了手机<strong><span style="color: #fa0">130****6798</span></strong>,[您的手机号可以直接用于登录、找回密码等]
+                        </div>
+                        <div>
+                            <span class="fa fa-check"></span>
+                            <strong>
+                                <span style="color: #0E9B06;">已绑定</span>
+                                <a href="">更换</a>
+                            </strong>
+                        </div>
+                    </div>
+                    <div id="alter-email-wrap" class="safe-details-wrap">
+                        <div>
+                            <strong>备用邮箱</strong>
+                        </div>
+                        <div>
+                            您已绑定了邮箱<strong><span style="color: #fa0">9****@163.com</span></strong>
+                        </div>
+                        <div>
+                            <span class="fa fa-check"></span>
+                            <strong>
+                                <span style="color: #0E9B06;">已绑定</span>
+                                <a href="">修改</a>
+                                <a href="">解绑</a>
+                            </strong>
+                        </div>
+                    </div>
+                    <div id="password-question-wrap" class="safe-details-wrap">
+                        <div>
+                            <strong>密保问题</strong>
+                        </div>
+                        <div>
+                            是您找回登录密码的方式之一。建议您设置三个容易记住，且最不容易被他人获取的问题及答案，更有效保障您的密码安全。
+                        </div>
+                        <div>
+                            <span class="fa fa-check"></span>
+                            <strong>
+                                <span style="color: #0E9B06;">已设置</span>
+                                <a href="">设置</a>
+                            </strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="stab" id="basic-info-tab">
+                <div class="stab-content-wrap">
+                    <div class="stab-title">
+                        <h5><strong>基本资料</strong></h5>
+                    </div>
+                    <div>
+                        请完善以下信息，方便我们更好地为您服务
+                    </div>
+                    <div class="stab-title">
+                        <h5><strong>基本信息</strong></h5>
+                    </div>
+                    <div>
+                        <table>
+                            <form action="">
+                                <tr>
+                                    <td>
+                                        <label for="" class="required">会员身份：</label>
+                                    </td>
+                                    <td>
+                                        <span>企业</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label for="" class="required">单位名称：</label>
+                                    </td>
+                                    <td>
+                                        <input type="text" name="" class="form-control input-sm"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label for="" class="required">营业年限：</label>
+                                    </td>
+                                    <td>
+                                        <select type="text" name="" class="form-control  input-sm">
+                                            <option value="3">3年以下</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label for="" class="required">企业规模：</label>
+                                    </td>
+                                    <td>
+                                        <select type="text" name="" class="form-control  input-sm">
+                                            <option value="3">100人以下</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                            </form>
+                        </table>
+                    </div>
+                    <div class="stab-title">
+                        <h5><strong>业务信息</strong></h5>
+                    </div>
+                    <div>
+                        <table>
+                            <form action="">
+                                <tr>
+                                    <td>
+                                        <label for="" class="required">行业分类：</label>
+                                    </td>
+                                    <td>
+                                        <select type="text" name="" class="form-control  input-sm">
+                                            <option value="3">IT/通信/电子/互联网</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label for="" class="required">主营业务：</label>
+                                    </td>
+                                    <td>
+                                        <input type="text" class="form-control input-sm" name="" placeholder="请输入具体产品名称"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label for="">网址：</label>
+                                    </td>
+                                    <td>
+                                        <input type="text" class="form-control input-sm" name="" placeholder="例如:http://www.tzk.com"/>
+                                    </td>
+                                </tr>
+
+                            </form>
+                        </table>
+                    </div>
+                    <div class="stab-title">
+                        <h5><strong>企业联系信息</strong></h5>
+                    </div>
+                    <div>
+                        <table>
+                            <form action="">
+                                <tr>
+                                    <td>
+                                        <label for="" class="required">所在地区：</label>
+                                    </td>
+                                    <td>
+                                        <select type="text" name="" class="form-control  input-sm">
+                                            <option value="3">北京</option>
+                                        </select>
+                                    </td>
+                                    <td style="padding-left: 20px;width: 200px;">
+                                        <select type="text" name="" class="form-control  input-sm">
+                                            <option value="3">北京市</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label for="">街道地址：</label>
+                                    </td>
+                                    <td>
+                                        <input type="text" class="form-control input-sm" name="" placeholder="请输入街道地址"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label for="">固定电话：</label>
+                                    </td>
+                                    <td>
+                                        <input type="text" class="form-control input-sm" name="" placeholder="例如:010-123456"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label for="">传真：</label>
+                                    </td>
+                                    <td>
+                                        <input type="text" class="form-control input-sm" name="" />
+                                    </td>
+                                </tr>
+
+                            </form>
+                        </table>
+                    </div>
+                    <div>
+                        <button style="margin-left: 140px;padding: 5px 20px;" type="button" class="btn btn-warning">保存</button>
+                    </div>
+
+                </div>
+            </div>
+            <div class="stab" id="contacts-tab">
+                <div class="stab-content-wrap">
+                    <div class="stab-title">
+                        <h5><strong>联系方式</strong></h5>
+                    </div>
+                    <div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>姓名</th>
+                                    <th>邮箱</th>
+                                    <th>手机</th>
+                                    <th>职位</th>
+                                    <th>操作</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            <tr id="1">
+                                <td>
+                                    <span>姓名</span>
+                                    <input type="hidden" value="" class="form-control input-sm"/>
+                                </td>
+                                <td>
+                                    <span>9****@163.com</span>
+                                    <input type="hidden" value="" class="form-control input-sm"/>
+                                </td>
+                                <td>
+                                    <span>130****6798</span>
+                                    <input type="hidden" value="" class="form-control input-sm"/>
+                                </td>
+                                <td>
+                                    <span>账号联系人</span>
+                                    <select style="display: none;" name="" class="form-control input-sm">
+                                        <option value="1">技术负责人</option>
+                                        <option value="1">运维负责人</option>
+                                        <option value="1">项目负责人</option>
+                                        <option value="1">财务负责人</option>
+                                        <option value="1">CEO</option>
+                                        <option value="1">其他</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <a href="">修改账号信息</a>
+                                    <button class="btn btn-default btn-sm" type="button" style="display: none;">保存</button>
+                                </td>
+                            </tr>
+                            <tr id="2">
+                                    <td>
+                                        <span>姓名</span>
+                                        <input type="hidden" value="" class="form-control input-sm"/>
+                                    </td>
+                                    <td>
+                                        <span>9****@163.com</span>
+                                        <input type="hidden" value="" class="form-control input-sm"/>
+                                    </td>
+                                    <td>
+                                        <span>130****6798</span>
+                                        <input type="hidden" value="" class="form-control input-sm"/>
+                                    </td>
+                                    <td>
+                                        <span>账号联系人</span>
+                                        <select style="display: none;" name="" class="form-control input-sm">
+                                            <option value="1">技术负责人</option>
+                                            <option value="1">运维负责人</option>
+                                            <option value="1">项目负责人</option>
+                                            <option value="1">财务负责人</option>
+                                            <option value="1">CEO</option>
+                                            <option value="1">其他</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <a href="">修改账号信息</a>
+                                        <button class="btn btn-default btn-sm" type="button" style="display: none;">保存</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                        <table>
+                            <tbody>
+                            <tr>
+                                <td>
+                                    <input type="text" placeholder="姓名" class="form-control input-sm"/>
+                                </td>
+                                <td>
+                                    <input type="text" placeholder="邮箱" class="form-control input-sm"/>
+                                </td>
+                                <td>
+                                    <input type="text" placeholder="手机号" class="form-control input-sm"/>
+                                </td>
+
+                                <td>
+                                    <select name=""  class="form-control input-sm">
+                                        <option value="1">技术负责人</option>
+                                        <option value="1">运维负责人</option>
+                                        <option value="1">项目负责人</option>
+                                        <option value="1">财务负责人</option>
+                                        <option value="1">CEO</option>
+                                        <option value="1">其他</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <button class="btn btn-primary btn-sm" type="button">添加</button>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+            <div class="stab">
+                444
+            </div>
+        </div>
+        <div class="ptab">
+        <div class="nav">
+            <div class="nav-div active">我的账户</div>
+            <div class="nav-div">交易管理</div>
+            <div class="nav-div">发票管理</div>
+            <div class="nav-div">线下汇款管理</div>
+        </div>
+
+        <div class="stab active" id="my-account-tab">
+            <div class="stab-content-wrap">
+                <div class="stab-title">
+                    <h5><strong>我的账户</strong></h5>
+                </div>
+                <div>
+                    <div>
+                        现金余额：
+                    </div>
+                    <div id="remain-cache-num">
+                        0.00
+                    </div>
+                    <div>
+                        <button style="margin-left: 20px;padding: 5px 20px;" type="button" class="btn btn-warning">立即充值</button>
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        余额预警开关：
+                    </div>
+                    <div>
+                        <dd>
+                            <label class="iosCheck"><input type="checkbox"><i></i></label>
+                            <!--向以上input标签添加 checked="checked" 可以将默认关改为默认开-->
+                        </dd>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        <div class="stab" id="transaction-management-tab">
+            <div class="stab-content-wrap">
+                <div class="stab-title">
+                    <h5><strong>交易管理</strong></h5>
+                </div>
+
+
+            </div>
+        </div>
+        <div class="stab" id="invoice-management-tab">
+            <div class="stab-content-wrap">
+                <div class="stab-title">
+                    <h5><strong>发票管理</strong></h5>
+                </div>
+            </div>
+        </div>
+        <div class="stab" id="offline-remittance">
+            <div class="stab-content-wrap">
+                <div class="stab-title">
+                    <h5><strong>线下汇款管理</strong></h5>
+                </div>
+            </div>
+        </div>
+
+        </div>
+        <div class="ptab">
+            <div class="nav">
+                <div class="nav-div active">订单</div>
+                <div class="nav-div">账单</div>
+            </div>
+
+            <div class="stab active" id="order-form-tab">
+                <div class="stab-content-wrap">
+                    <div class="stab-title">
+                        <h5><strong>订单</strong></h5>
+                    </div>
+
+                </div>
+            </div>
+            <div class="stab" id="bill-tab">
+                <div class="stab-content-wrap">
+                    <div class="stab-title">
+                        <h5><strong>账单</strong></h5>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="ptab">
+            <div class="nav">
+                <div class="nav-div active">站内信息</div>
+                <div class="nav-div">故障信息</div>
+            </div>
+
+            <div class="stab active" id="station-message-tab">
+                <div class="stab-content-wrap">
+                    <div class="stab-title">
+                        <h5><strong>站内信息</strong></h5>
+                    </div>
+
+                </div>
+            </div>
+            <div class="stab" id="bug-message-tab">
+                <div class="stab-content-wrap">
+                    <div class="stab-title">
+                        <h5><strong>故障信息</strong></h5>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="ptab">
+            5
+        </div>
+        <div class="ptab">
+            6
+        </div>
+        <div class="ptab">
+            7
+        </div>
+    </div>
+</body>
+<script>
+     binder();
+//     $("#my-account-tab .iosCheck i").click (
+//             function() {
+//                 if ($("#my-account-tab .iosCheck input").attr("checked") == "checked") {
+//                     $("#my-account-tab .iosCheck input").attr("checked","");
+//                 }
+//                 else{
+//                     $("#my-account-tab .iosCheck input").attr("checked","checked");
+//                 }
+//             }
+//     );
+</script>
+</html>

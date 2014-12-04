@@ -1,0 +1,20 @@
+#my-account-tab .stab-content-wrap>div>*{
+    display: inline-block;
+    vertical-align: middle;
+}
+#my-account-tab .stab-content-wrap>div{
+    text-align: left;
+    padding-left: 30px;
+    margin-top: 15px;
+}
+#remain-cache-num{
+    font-size: 24px;
+    font-weight: bold;
+    color: #f60;
+}
+#remain-cache-num:after{
+    content: "元";
+    font-size: 16px;
+    font-weight: bold;
+    color: #000;
+}

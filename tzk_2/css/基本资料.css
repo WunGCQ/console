@@ -1,0 +1,35 @@
+#basic-info-tab .stab-content-wrap > div {
+    text-align: left;
+    border-bottom: 0px;
+}
+
+#basic-info-tab .stab-title:first-child {
+    border-bottom: 1px solid #ddd !important;
+}
+
+.required:before{
+    content: "*";
+    color: #c00;
+    font-size: 18px;
+}
+#basic-info-tab table tr{
+    display: block;
+    padding-left: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+#basic-info-tab table tr>td:first-child {
+    width: 100px;
+    text-align: right;
+}
+#basic-info-tab table tr>td:nth-child(2) {
+    width: 300px;
+    padding-left: 20px;
+    text-align: left;
+}
+#basic-info-tab table>tr>td:nth-child(3) {
+    width: 200px;
+    padding-left: 20px;
+    text-align: left;
+}
